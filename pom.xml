@@ -296,14 +296,16 @@
     <profile>
       <id>release</id>
       <distributionManagement>
-        <snapshotRepository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+          <id>github</id>
+          <name>GitHub makewise-vision Apache Maven Packages</name>
+          <url>https://maven.pkg.github.com/makewise-vision/narayana-spring-boot</url>
         </repository>
+        <snapshotRepository>
+          <id>github</id>
+          <name>GitHub makewise-vision Apache Maven Packages</name>
+          <url>https://maven.pkg.github.com/makewise-vision/narayana-spring-boot</url>
+        </snapshotRepository>
       </distributionManagement>
       <build>
         <plugins>
@@ -366,18 +368,6 @@
               <useReleaseProfile>false</useReleaseProfile>
               <releaseProfiles>release</releaseProfiles>
               <goals>deploy</goals>
-            </configuration>
-          </plugin>
-          <plugin>
-            <!--See http://central.sonatype.org/pages/apache-maven.html for more information -->
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>${nexus-staging-maven-plugin.version}</version>
-            <extensions>true</extensions>
-            <configuration>
-              <serverId>ossrh</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>
           </plugin>
         </plugins>
